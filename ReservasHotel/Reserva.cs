@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReservasHotel
 {
-    public class Reserva
+    public abstract class Reserva
     {
         public string NombreCliente { get; set; }
         public int NumeroHabitacion { get; set; }
@@ -26,9 +26,22 @@ namespace ReservasHotel
             DuracionEstadia = duracionEstadia;
         }
 
-        public virtual double CalcularCostoTotal()
+        public abstract double CalcularCostoTotal();
+
+        public double CalcularCostoTotal(int noches)
         {
-            return 0; 
+            if (noches < 1)
+                throw new ArgumentException("El número de noches debe ser al menos 1.");
+
+            return CalcularCostoTotal() / DuracionEstadia * noches;
+        }
+
+        public double CalcularCostoTotal(int noches, double tarifa)
+        {
+            if (noches < 1 || tarifa <= 0)
+                throw new ArgumentException("Parámetros inválidos: noches > 0 y tarifa > 0.");
+
+            return noches * tarifa;
         }
     }
 }
