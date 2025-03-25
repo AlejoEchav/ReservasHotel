@@ -26,9 +26,9 @@ namespace ReservasHotel
             DuracionEstadia = duracionEstadia;
         }
 
-        public abstract double CalcularCostoTotal();
+        public abstract decimal CalcularCostoTotal();
 
-        public double CalcularCostoTotal(int noches)
+        public decimal CalcularCostoTotal(int noches)
         {
             if (noches < 1)
                 throw new ArgumentException("El número de noches debe ser al menos 1.");
@@ -36,7 +36,7 @@ namespace ReservasHotel
             return CalcularCostoTotal() / DuracionEstadia * noches;
         }
 
-        public double CalcularCostoTotal(int noches, double tarifa)
+        public decimal CalcularCostoTotal(int noches, decimal tarifa)
         {
             if (noches < 1 || tarifa <= 0)
                 throw new ArgumentException("Parámetros inválidos: noches > 0 y tarifa > 0.");

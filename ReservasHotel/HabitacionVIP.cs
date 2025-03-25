@@ -8,10 +8,10 @@ namespace ReservasHotel
 {
     public class HabitacionVIP : Reserva
     {
-        public double TarifaPorNoche { get; set; }
-        private const double DescuentoVIP = 0.20;
+        public decimal TarifaPorNoche { get; set; }
+        private const decimal DescuentoVIP = 0.20M;
 
-        public HabitacionVIP(string nombreCliente, int numeroHabitacion, DateTime fechaReserva, int duracionEstadia, double tarifaPorNoche)
+        public HabitacionVIP(string nombreCliente, int numeroHabitacion, DateTime fechaReserva, int duracionEstadia, decimal tarifaPorNoche)
             : base(nombreCliente, numeroHabitacion, fechaReserva, duracionEstadia)
         {
             if (tarifaPorNoche <= 0)
@@ -20,9 +20,9 @@ namespace ReservasHotel
             TarifaPorNoche = tarifaPorNoche;
         }
 
-        public override double CalcularCostoTotal()
+        public override decimal CalcularCostoTotal()
         {
-            double total = TarifaPorNoche * DuracionEstadia;
+            decimal total = TarifaPorNoche * DuracionEstadia;
 
             if (DuracionEstadia > 5)
                 total -= total * DescuentoVIP;
@@ -30,7 +30,7 @@ namespace ReservasHotel
             return total;
         }
 
-        public new double CalcularCostoTotal(int noches)
+        public new decimal CalcularCostoTotal(int noches)
         {
             return base.CalcularCostoTotal(noches, TarifaPorNoche);
         }

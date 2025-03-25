@@ -8,34 +8,23 @@ namespace ReservasHotel
 {
     public class GestorReservas
     {
-        private static GestorReservas instancia;
-        private List<Reserva> listaReservas;
+        private static GestorReservas _instancia = new GestorReservas();
+        public static GestorReservas instancia { get { return _instancia; } }
 
-        private GestorReservas()
-        {
-            listaReservas = new List<Reserva>();
-        }
-
-        public static GestorReservas ObtenerInstancia()
-        {
-            if (instancia == null)
-            {
-                instancia = new GestorReservas();
-            }
-            return instancia;
-        }
+        private List<Reserva> listaReservas = new List<Reserva>();
 
         public void AgregarReserva(Reserva reserva)
         {
-            foreach (var r in listaReservas)
-            {
-                if (r.NumeroHabitacion == reserva.NumeroHabitacion && r.FechaReserva == reserva.FechaReserva)
-                {
-                    throw new Exception("Ya existe una reserva para esta habitación en la misma fecha.");
-                }
-            }
-
             listaReservas.Add(reserva);
+        }
+
+        public List<Reserva> ObtenerReservas()
+        {
+            if (listaReservas == null)
+            {
+                listaReservas = new List<Reserva>(); 
+            }
+            return listaReservas;
         }
 
         public void EliminarReserva(int numeroHabitacion, DateTime fechaReserva)
@@ -50,11 +39,6 @@ namespace ReservasHotel
             {
                 throw new Exception("No se encontró la reserva a eliminar.");
             }
-        }
-
-        public List<Reserva> ObtenerReservas()
-        {
-            return listaReservas;
         }
     }
 }

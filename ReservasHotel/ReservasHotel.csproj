@@ -52,12 +52,42 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReservaEstandar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservaEstandar.Designer.cs">
+      <DependentUpon>FormReservaEstandar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReservaVIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservaVIP.Designer.cs">
+      <DependentUpon>FormReservaVIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerReservas.Designer.cs">
+      <DependentUpon>FormVerReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestorReservas.cs" />
     <Compile Include="HabitacionEstandar.cs" />
     <Compile Include="HabitacionVIP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reserva.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReservaEstandar.resx">
+      <DependentUpon>FormReservaEstandar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReservaVIP.resx">
+      <DependentUpon>FormReservaVIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerReservas.resx">
+      <DependentUpon>FormVerReservas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -8,9 +8,9 @@ namespace ReservasHotel
 {
     public class HabitacionEstandar : Reserva
     {
-        public double TarifaFija { get; set; }
+        public decimal TarifaFija { get; set; }
 
-        public HabitacionEstandar(string nombreCliente, int numeroHabitacion, DateTime fechaReserva, int duracionEstadia, double tarifaFija)
+        public HabitacionEstandar(string nombreCliente, int numeroHabitacion, DateTime fechaReserva, int duracionEstadia, decimal tarifaFija)
             : base(nombreCliente, numeroHabitacion, fechaReserva, duracionEstadia)
         {
             if (tarifaFija <= 0)
@@ -19,7 +19,7 @@ namespace ReservasHotel
             TarifaFija = tarifaFija;
         }
 
-        public override double CalcularCostoTotal()
+        public override decimal CalcularCostoTotal()
         {
             return TarifaFija * DuracionEstadia;
         }
